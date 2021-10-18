@@ -17,5 +17,13 @@ $store_data  = mysqli_fetch_assoc($result);
 $app->set_url($parameters['shop']);
 $app->set_token($store_data['access_token']);
 
+echo $app->get_url();
+echo "<br>";
+echo $app->get_token();
+echo "<br>";
+
+$products = $app->rest_call("/admin/api/2021-10/products.json",array(),'GET');
+
+print_r($products);
 
 ?>
