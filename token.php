@@ -26,11 +26,11 @@ if(hash_equals($hmac,$new_hmac)){
     curl_close($ch);
 
     $response = json_decode($response,true);
-    print_r($response);
 
     $query = "insert into stores (store_url,access_token,create_date) values ('".$parameters['shop']."' , '".$response['access_token']."','".date('Y-m-d H:i:s')."') on duplicate key update access_token='".$response['access_token']."'";
     if(mysqli_query($mysql,$query)){
-    
+        echo "<script>top.window.location = 'https://".$shop_url."/admin/apps/sagartestapp'</script>";
+        exit();
     }else{
         echo "an error occured";
     }

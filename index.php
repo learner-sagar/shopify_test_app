@@ -24,6 +24,13 @@ echo "<br>";
 
 $products = $app->rest_call("/admin/api/2021-10/products.json",array(),'GET');
 
-print_r($products);
+$response = json_decode($products['body'], true);
+if(array_key_exists('errors',$response)){
+    echo 'Sorry there is an error in your api call spcifically: '.$response['errors'];
+    header("Location: install.php?shop=".$parameters['shop']);
+    exit();
+}else{
+    print_r($response);
+}
 
 ?>

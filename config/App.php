@@ -64,11 +64,17 @@ class App{
             return $error_message;
         }else{
             $response = preg_split("/\r\n\r\n|\n\n|\r\r/", $response, 2);
-            //print_r($response);
-
             $headers = array();
-            $headers_content = explode('\n',$response[1]);
-            print_r($headers_content);
+            $headers_content = explode('\n',$response[0]);
+            $headers['status'] = $headers_content[0];
+            array_shift($headers_content);
+            foreach($headers_content as $content){
+                $data = explode(':', $content);
+                $headers[trim($data[0])] = trim($data[1]);
+                print_r($data);die;
+            }
+            
+            return array('headers' => $headers, 'body' => $response[1]);
         }
     }
 }

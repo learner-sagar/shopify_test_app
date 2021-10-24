@@ -1,5 +1,5 @@
 <?php
-    $app_url = "http://036c-2401-4900-1bc7-1bb5-3536-c731-b878-6889.ngrok.io";
+    $app_url = "https://8a14-2402-8100-3848-d1a3-1cad-adfb-f7a5-9d10.ngrok.io";
     $shop = $_GET['shop'];
     $api_key = "1fac0f2fa86afd2304d49859712b3f20";
     $scopes = "read_orders,write_orders,read_products,write_products";
