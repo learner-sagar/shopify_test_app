@@ -12,9 +12,15 @@ $parameters = $_GET;
  * ==============================================
  */
     include_once('./config/check_token.php');
-
-
-    $response = $app->rest_call("/admin/oauth/access_scopes.json",array(),'GET');
-    $response = json_decode($response['body'], true);
-    print_r($response);
 ?>
+
+<?php include_once("header.php"); ?>
+    <section>
+        <div class="alert columns twelve">
+            <dl>
+                <dt>Welcom to Sagar's first shoify app</dt>
+            </dl>
+        </div>
+    </section>
+</main>
+<?php include_once("footer.php"); ?>
